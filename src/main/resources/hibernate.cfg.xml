@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database Connection Settings for MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/campus_event_db?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!-- JDBC Connection Pool (Hibernate Default Built-in Pool) -->
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- SQL Dialect for MySQL 8.x / 5.7 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Echo all executed SQL to stdout for debugging & viva demonstration -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Schema Behavior (Safely preserve existing database schema without modification) -->
+        <property name="hibernate.hbm2ddl.auto">none</property>
+
+        <!-- Annotated Entity Classes -->
+        <mapping class="com.campusevent.model.User"/>
+        <mapping class="com.campusevent.model.Event"/>
+        <mapping class="com.campusevent.model.Registration"/>
+        <mapping class="com.campusevent.model.Team"/>
+        <mapping class="com.campusevent.model.TeamMember"/>
+    </session-factory>
+</hibernate-configuration>
